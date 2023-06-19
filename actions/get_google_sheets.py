@@ -27,7 +27,7 @@ os.makedirs(directory, exist_ok=True)
 # For each sheet, get all the data and write it to a CSV file
 for sheet in sheets:
     sheet_name = sheet.get('properties', {}).get('title')
-    if sheet_name in ['Responses', 'Labels']:  # Replace with your sheet names
+    if sheet_name in ['Responses']:
         result = service_sheets.spreadsheets().values().get(
             spreadsheetId=SHEET_ID,
             range=sheet_name).execute()

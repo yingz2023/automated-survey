@@ -8,9 +8,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - name: Set up Python
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v3
       with:
         python-version: '3.10'
     - name: Install Python Dependencies
@@ -19,7 +19,7 @@ jobs:
       run: python actions/get_google_sheets.py
       env:
         SERVICE_ACCOUNT: ${{ secrets.GOOGLE_SERVICE_ACCOUNT }}
-        SPREADSHEET_ID: ${{ secrets.DEVICE_TESTING_A1_SPREADSHEET_ID }}
+        SPREADSHEET_ID: ${{ secrets.GOOGLE_SHEETS_ID }}
     - name: Commit changes
       run: |
         git config --local user.email "actions@github.com"
